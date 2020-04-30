@@ -1,0 +1,20 @@
+<ActionBar title="Logar" class="action-bar"></ActionBar>
+<ScrollView>   
+   <StackLayout class="page">
+       <StackLayout class="form" [formGroup]="form">
+
+           <StackLayout class="input-field">
+               <Label text="E-mail" class="label font-weight-bold m-b-5" textAlignment="center"></Label>
+               <TextField  class="input" formControlName="email"></TextField>
+               <StackLayout class="hr-light"></StackLayout>
+           </StackLayout>
+
+           <StackLayout class="input-field">
+               <Label text="Senha" class="label font-weight-bold m-b-5" textAlignment="center"></Label>
+               <TextField  class="input" secure="true" formControlName="senha"></TextField>
+               <StackLayout class="hr-light"></StackLayout>
+           </StackLayout> 
+       </StackLayout>
+       <Button text="Logar" (tap)="logar()" class="btn btn-success" ></Button>
+   </StackLayout>
+</ScrollView>

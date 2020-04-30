@@ -1,0 +1,34 @@
+<ActionBar title="Perfil" class="action-bar"></ActionBar>
+<ScrollView>   
+   <StackLayout class="page">
+       <StackLayout class="form" [formGroup]="form">
+
+            <StackLayout class="input-field">
+                <Label text="Nome" class="label font-weight-bold m-b-5" textAlignment="center"></Label>
+                <TextField  class="input" formControlName="nome"></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+
+            <StackLayout class="input-field">
+                <Label text="CPF" class="label font-weight-bold m-b-5" textAlignment="center"></Label>
+                <TextField  class="input" formControlName="cpf"></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+
+            <StackLayout class="input-field">
+                <Label text="RG" class="label font-weight-bold m-b-5" textAlignment="center"></Label>
+                <TextField  class="input" formControlName="rg"></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+
+            <StackLayout class="input-field">
+                <Label text="E-mail" class="label font-weight-bold m-b-5" textAlignment="center"></Label>
+                <TextField  class="input" formControlName="email"></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+
+       </StackLayout>
+       <Button text="Alterar" class="btn btn-success"  (tap)="alterarUsuario()"></Button>
+       <Button text="Excluir Conta" class="btn btn-Dark"  (tap)="excluirUsuario()"></Button>
+   </StackLayout>
+</ScrollView>

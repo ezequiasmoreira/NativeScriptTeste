@@ -1,0 +1,26 @@
+ <ActionBar title="Calcular IMC" class="action-bar"></ActionBar>
+ <ScrollView>   
+    <StackLayout class="page">
+        <!-- formGroup >> Define o nome do formulario -->
+        <StackLayout class="form" [formGroup]="form">
+            <!-- formControlName >> Define o nome da informação a ser manipulada -->
+            <StackLayout class="input-field">
+                <Label text="Peso" class="label font-weight-bold m-b-5" textAlignment="center"></Label>
+                <TextField  class="input" formControlName="peso"></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+
+            <StackLayout class="input-field">
+                <Label text="Altura" class="label font-weight-bold m-b-5" textAlignment="center"></Label>
+                <TextField  class="input" formControlName="altura"></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+        </StackLayout>
+        <!-- tap >> Funciona como se fosse o evento de on-clik -->
+        <Button text="Calcular" class="btn btn-primary" (tap)="calcular()"></Button>
+        <!-- nsRouterLink >> define a rota ex usuario: verifica se tem a rota criada em app-routing, se tiver rota, 
+            ele ira acessar o componente usuario-component.ts -->
+        <Button text="Cadastrar usuário" nsRouterLink="/usuario" class="btn btn-success" ></Button>
+        <Button text="Login" nsRouterLink="/login" class="btn btn-success" ></Button>
+    </StackLayout>
+</ScrollView>

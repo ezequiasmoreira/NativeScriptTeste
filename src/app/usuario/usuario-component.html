@@ -1,0 +1,42 @@
+<ActionBar title="Cadastrar usuário" class="action-bar"></ActionBar>
+<ScrollView>   
+   <StackLayout class="page">
+       <!-- formGroup >> Define o nome do formulario -->
+       <StackLayout class="form" [formGroup]="form">
+
+            <StackLayout class="input-field">
+                <!-- formControlName >> Define o nome da informação a ser manipulada -->
+                <Label text="Nome" class="label font-weight-bold m-b-5" textAlignment="center"></Label>
+                <TextField  class="input" formControlName="nome"></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+
+            <StackLayout class="input-field">
+                <Label text="CPF" class="label font-weight-bold m-b-5" textAlignment="center"></Label>
+                <TextField  class="input" formControlName="cpf"></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+
+            <StackLayout class="input-field">
+                <Label text="RG" class="label font-weight-bold m-b-5" textAlignment="center"></Label>
+                <TextField  class="input" formControlName="rg"></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+
+            <StackLayout class="input-field">
+                <Label text="E-mail" class="label font-weight-bold m-b-5" textAlignment="center"></Label>
+                <TextField  class="input" formControlName="email"></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+
+            <StackLayout class="input-field">
+                <Label text="Senha" class="label font-weight-bold m-b-5" textAlignment="center"></Label>
+                <TextField  class="input" secure="true" formControlName="senha"></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+
+       </StackLayout>
+       <!-- tap >> Funciona como se fosse o evento de on-clik -->
+       <Button text="Salvar" class="btn btn-success"  (tap)="cadastrarUsuario()"></Button>
+   </StackLayout>
+</ScrollView>
