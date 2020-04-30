@@ -4,6 +4,13 @@ import { Router } from "@angular/router";
 import { HttpClient,HttpHeaders } from "@angular/common/http";
 import { request, HttpResponse } from "tns-core-modules/http";
 
+import * as camera from "nativescript-camera";
+import { requestPermissions } from "nativescript-camera";
+const imageModule = require("tns-core-modules/ui/image");
+import { Image } from "tns-core-modules/ui/image"; 
+import {ImageSource, fromFile, fromResource, fromBase64} from "tns-core-modules/image-source";
+import {Folder, path, knownFolders} from "tns-core-modules/file-system";
+
 @Component({
     selector: "perfil",
     moduleId: module.id,
@@ -19,6 +26,42 @@ export class PerfilComponent {
         this.setupForm();
         this.submitted = false;
         this.formErrors = null;
+      }
+      public tirarFoto(){
+        const options = {
+          width: 300,
+          height: 300,
+          keepAspectRatio: true,
+          saveToGallery: true,
+          allowsEditing: true
+      };
+        camera.requestPermissions().then(
+          function success() {
+            const source = new ImageSource();
+              camera.takePicture(options)   
+              .then(function (imageAsset) {
+                const source = new ImageSource();
+
+                source.fromAsset(imageAsset)
+                    .then((imageSource: ImageSource) => {
+                        const folderPath: string = knownFolders.documents().path;
+                        const fileName: string = "test.jpg";
+                        const filePath: string = path.join(folderPath, fileName);
+                        const saved: boolean = imageSource.saveToFile(filePath, "jpg");
+                
+                        if (saved) {
+                            console.log("Gallery: " + this._dataItem.picture_url);
+                            console.log("Saved: " + filePath);
+                            console.log("Image saved successfully!");
+                        }
+                    });
+              }).catch(function (err) {
+                  console.log("Error -> " + err.message);
+              });
+          }, 
+          function failure() {
+          }
+        );        
       }
       public exibirMensagem(mensagem){        
         var dialogs = require("tns-core-modules/ui/dialogs");
